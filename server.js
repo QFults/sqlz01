@@ -8,6 +8,6 @@ app.use(express.json())
 app.use(require('./routes'))
 
 require('./connection')
-  .sync()
+  .sync({ force: true })
   .then(() => app.listen(3000, () => console.log('http://localhost:3000')))
   .catch(err => console.error(err))
