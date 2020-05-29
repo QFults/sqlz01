@@ -1,3 +1,22 @@
+
+const getUser = () => {
+  axios.get(`/api/users/${localStorage.getItem('user')}`)
+    .then(({ data }) => {
+      document.getElementById('user').innerHTML = `
+      <p>${data.name}</p>
+      <p>${data.age}</p>
+      `
+      data.pets.forEach(pet => {
+        let petElem = document.createElement('li')
+        petElem.textContent = `
+          Name: ${pet.name} | Breed: ${pet.breed} | Age: ${pet.age}
+        `
+        document.getElementById('pets').append(petElem)
+      })
+    })
+}
+
+
 document.getElementById('addPet').addEventListener('click', event => {
   event.preventDefault()
 
@@ -5,7 +24,7 @@ document.getElementById('addPet').addEventListener('click', event => {
     name: document.getElementById('name').value,
     breed: document.getElementById('breed').value,
     age: document.getElementById('age').value,
-    userId: event.target.dataset.id
+    userId: localStorage.getItem('user')
   })
     .then(() => {
       let petElem = document.createElement('li')
@@ -17,3 +36,5 @@ document.getElementById('addPet').addEventListener('click', event => {
     })
     .catch(err => console.error(err))
 })
+
+getUser()

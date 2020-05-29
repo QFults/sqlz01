@@ -13,4 +13,7 @@ router.get('/dashboard/:id', (req, res) => {
     .catch(err => console.error(err))
 })
 
+router.get('/test', (req, res) => {
+  res.render('test')
+})
 module.exports = router
