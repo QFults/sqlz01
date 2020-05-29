@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="user">
+  </div>
+  <hr>
+  <form>
+    <p>
+      <label for="name">name</label>
+      <input type="text" name="name" id="name">
+    </p>
+    <p>
+      <label for="breed">breed</label>
+      <input type="text" name="breed" id="breed">
+    </p>
+    <p>
+      <label for="age">age</label>
+      <input type="number" name="age" id="age">
+    </p>
+    <button id="addPet">Add Pet</button>
+  </form>
+  <hr>
+  <ul id="pets">
+  </ul>
+  
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./dashboard.js"></script>
+</body>
+</html>
